@@ -44,19 +44,28 @@ void printList(struct node* temp) {
     }
     printf("\n");
 }
-/*struct node* mergeList(struct node* ll1,struct node* ll2){
-    struct node* temp1 =ll1;
-    struct node* temp2 =ll2;
-    while(temp1->next != NULL ||temp2->next != NULL){
-        if(temp1->value < temp2->value){
-            temp1 = temp1->next;
+struct node* mergeList(struct node* ll1,struct node* ll2){
+    struct node merge;
+    struct node* tail = &merge;
+    tail->next = NULL;
+    while(ll1 != NULL && ll2 != NULL){
+        if(ll1->value < ll2->value){
+            tail->next = ll1;
+            ll1 = ll1->next;
         }
         else{
-            temp2->next = temp1->next;
-            temp1 = temp2;
+            tail->next = ll2;
+            ll2 = ll2->next;
         }
-}
-}*/ 
+        tail = tail->next;
+    }
+    if(ll1 !=NULL)
+       tail->next = ll1;
+    if(ll2 !=NULL)
+       tail->next = ll2;
+    
+       return merge.next;
+} 
 int main() {
     int t;
     printf("Enter No.Of TestCases:\n");
@@ -71,7 +80,9 @@ int main() {
         printList(l1);
         printf("List 2: ");
         printList(l2);
-        //mergeList(l1,l2);
+        struct node* merged = mergeList(l1, l2);
+        printf("Merged List: ");
+        printList(merged);
         t--;
     }
     return 0;
