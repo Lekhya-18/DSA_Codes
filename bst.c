@@ -105,7 +105,7 @@ int main(){
               case 1:
                 printf("Enter value to insert: ");
                 scanf("%d", &value);
-                 insert(root, value);
+                root = insert(root, value);
                 printf("Node inserted successfully!\n");
                 break;
             case 2:
@@ -119,7 +119,7 @@ int main(){
             case 3:
                 printf("Enter value to delete: ");
                 scanf("%d", &value);
-                 deleteNode(root, value);
+                root = deleteNode(root, value);
                 printf("Node deleted successfully (if it existed).\n");
                 break;
             case 4:
