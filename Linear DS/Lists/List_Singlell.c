@@ -1,4 +1,55 @@
 #include<stdio.h>
+#include<stdlib.h>
+struct Node
+{
+  int data;
+  struct Node* next;
+};
+struct Node* head = NULL;
+struct Node* createNode(int val){
+     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+     newNode->data = val;
+     newNode->next = NULL;
+     return newNode;
+}
+void insertAtBeginning(int value){
+       struct Node* newNode = createNode(value);
+       if(head==NULL){
+              head = newNode;
+              return;
+       }
+       newNode->next = head;
+       head = newNode;
+}
+void insertAtEnd(int value){
+     struct Node* newNode = createNode(value);
+       if(head==NULL){
+              head = newNode;
+              return;
+       }
+       struct Node* temp = head;
+       while(temp->next != NULL){
+              temp = temp->next;
+       } 
+       temp->next = newNode;
+}
+void insertAfterKey(int value,int key){
+      struct Node* newNode = createNode(value);
+      if(head==NULL){
+       printf("No Elements in List,So key not found!\nCan't insert\n");
+       return;
+      }
+      struct Node* temp = head;
+       while(temp->data != key){
+              temp = temp->next;
+       }
+       if(temp==NULL){
+         printf("Key not found! Can't insert\n");
+         return;    
+       }
+       newNode->next = temp->next;
+       temp->next = newNode;
+}
 int main(){
     int choice,value,key,position;
     printf("Single linked list");
@@ -32,7 +83,7 @@ int main(){
                scanf("%d",&value);
                printf("Enter key:");
                scanf("%d",&key);
-               insertKey(value,key);
+               insertAfterKey(value,key);
                break;
         case 4: printf("Insert at the position from beginning:\n");
                printf("ENter value to insert:\n");
