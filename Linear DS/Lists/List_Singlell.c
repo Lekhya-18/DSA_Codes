@@ -50,6 +50,61 @@ void insertAfterKey(int value,int key){
        newNode->next = temp->next;
        temp->next = newNode;
 }
+void deleteFirst(){
+       if(head==NULL){
+              printf("No Elements in List.\n");
+              return;
+       }
+        struct Node* temp = head;
+        head = temp->next;
+        Printf("%d is deleted",temp->data);
+        free(temp);
+}
+void deleteLast(){
+       if(head==NULL){
+              printf("No Elements in List.\n");
+              return;
+       }
+       if(head->next == NULL){
+        printf("%d is deleted\n", head->data);
+        free(head);
+        head = NULL;
+        return;
+       }
+       struct Node* temp = head;
+       struct Node* prev =NULL;
+       while(temp->next!=NULL){
+           prev = temp;
+           temp = temp->next;
+       }
+       printf("%d is deleted",temp->data);
+       prev->next = NULL;
+       free(temp);
+}
+void  deleteKey(int key){
+       if(head==NULL){
+              printf("No Elements in List.\n");
+              return;
+       }
+       struct Node* temp = head;
+       struct Node* prev =NULL;
+       if(temp != NULL && temp->data == key){
+        head = temp->next;
+        printf("%d is deleted\n", temp->data);
+        free(temp);
+        return;
+       }
+       while(temp !=NULL || temp->data != key){
+           prev = temp;
+           temp = temp->next;
+       }
+       if(temp==NULL){
+              printf("Key not Found\n");
+       }
+       printf("%d is deleted",temp->data);
+       prev->next = temp->next;
+       free(temp);
+}
 int main(){
     int choice,value,key,position;
     printf("Single linked list");
@@ -103,7 +158,7 @@ int main(){
                  deleteFirst();
                  break;
         case 7: printf("Delete last Node\n");
-                deleteEnd();
+                deleteLast();
                 break;
         case 8: printf("Delete key\n");
                printf("Enter key:\n");
