@@ -1,7 +1,7 @@
 # DSA_Codes
-This repository contains my personal implementations of Data Structures & Algorithms in C/C++. It covers:
-- Searching (Linear, Binary)
-- Sorting (Bubble, Quick, Merge, Heap…)
+This repository contains my personal implementations of Data Structures & Algorithms in C. It covers:
+- Searching (Linear, Binary, Interpolation)
+- Sorting (Bubble, Quick, Merge, Insertion…)
 - Hashing techniques
 - Linear Data Structures (Stack, Queue, Linked List…)
 - Non-Linear Data Structures (Binary Tree, BST, Graphs…)
