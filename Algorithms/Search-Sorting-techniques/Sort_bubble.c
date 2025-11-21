@@ -21,7 +21,7 @@ int main(){
             }
         }
     }
-    printf("=======Sorted Array=======\n");
+    printf("=======Sorted Array========\n");
     for(int i=0;i<size;i++){
         printf("%d ",arr[i]);
     }
