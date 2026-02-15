@@ -1,4 +1,5 @@
-//DOUBLE HASHING
+//DOUBLE HASHING 
+//To check how revert works 
 #include <stdio.h>
 #define N 5
 #define PRIME 5
@@ -55,6 +56,7 @@ void show(){
        printf("%d \n",hashtable[i]);
     } }
 int main() {
+    printf("To check how revert works.");
 init();
 insert(56); insert(47); insert(55); insert(23);insert(87); 
 show();search(55);
