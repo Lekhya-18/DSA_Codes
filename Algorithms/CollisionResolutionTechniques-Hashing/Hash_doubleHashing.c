@@ -55,6 +55,7 @@ void show(){
        printf("%d \n",hashtable[i]);
     } }
 int main() {
+    printf("To know how Revert works");
 init();
 insert(56); insert(47); insert(55); insert(23);insert(87); 
 show();search(55);
